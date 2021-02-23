@@ -1,0 +1,4 @@
+dependent_joints:
+  base_link02__link06: {parent: base_link01__link03, factor: 1 }  
+  
+  

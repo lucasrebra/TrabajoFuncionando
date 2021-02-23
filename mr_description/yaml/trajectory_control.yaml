@@ -1,0 +1,17 @@
+myrobot:
+  Brazo:
+    type: "position_controllers/JointTrajectoryController"
+    joints:
+      - base_link__link01
+      - link01__link02
+      - link01__link05
+      - link05__link06
+      - link06__wrist1
+      - joint_wrist1__wrist2
+    gains:
+      - base_link__link01:   {p: 1000.0, i: 0.0, d: 0.1, i_clamp: 0.0}
+      - link01__link02: {p: 1000.0, i: 0.0, d: 0.1, i_clamp: 0.0}
+      - link01__link05:  {p: 1000.0, i: 0.0, d: 0.1, i_clamp: 0.0}
+      - link05__link06:       {p: 1000.0, i: 0.0, d: 0.1, i_clamp: 0.0}
+      - link06__wrist1:    {p: 1000.0, i: 0.0, d: 0.1, i_clamp: 0.0}
+      - joint_wrist1__wrist2: {p: 1000.0, i: 0.0, d: 0.1, i_clamp: 0.0}

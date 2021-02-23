@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+
+<launch>
+  <!-- Launch Gazebo  -->
+  <include file="$(find mr_description)/launch/myrobot_world.launch"/>   
+
+  <!-- ros_control sainsmart 6 dof arm launch file -->
+  <include file="$(find mr_description)/launch/sm_gazebo_states.launch"/>   
+
+  <!-- ros_control trajectory control dof arm launch file -->
+  <include file="$(find mr_description)/launch/sm_trajectory_controller.launch"/>    
+
+  <!-- moveit launch file -->
+  <include file="$(find sm_moveit_pkg)/launch/moveit_planning_execution.launch" />    
+
+	<!-- publish joint states -->
+	 <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+		<param name="use_gui" value="false"/>
+		<rosparam param="/source_list">[/move_group]</rosparam>
+	 </node>
+
+</launch>

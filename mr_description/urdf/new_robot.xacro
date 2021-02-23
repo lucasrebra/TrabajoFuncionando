@@ -1,0 +1,88 @@
+	<!--joint_link06_wrist1-->
+			<m_joint name="link06__wrist1" type="revolute"
+			 axis_xyz="0 1 0"
+			 origin_rpy="0 0 0" origin_xyz="13.3 0 0"
+			 parent="link_06" child="wrist1"
+			 limit_e="1000" limit_l="-1.57" limit_u="1.57" limit_v="0.5" />
+
+	<!--Transmision asociada a la articulacion link06__wrist1-->	
+		<transmission name="trans_base_link06_wrist1">
+		        <type>transmission_interface/SimpleTransmission</type>
+		    	  <joint name="link06__wrist1">
+		           <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+		    	  </joint>
+		        <actuator name="motor_base_link06_wrist1">
+			         <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+			         <mechanicalReduction>1</mechanicalReduction>
+		        </actuator>
+		</transmission>
+
+	<!--wrist1-->
+		  <link name="wrist1">
+		  <inertial>
+		      <mass value="50" />
+		      <origin rpy="0 0 0" xyz="0 0 0" />
+		      <inertia ixx="10" ixy="0" ixz="0" iyy="10" iyz="0" izz="9" />
+		    </inertial>
+
+		  <visual>
+		    <origin rpy="0 0 0" xyz="1.5 0 0" />
+		    <geometry>
+		      <box size="3 2 2.5" />
+		    </geometry>
+		  </visual>
+		  
+		  <collision>
+		        <origin rpy="0 0 0" xyz="1.5 0 0"/>
+		        <geometry>
+		            <box size="3 2 2.5" />
+		        </geometry>
+		  </collision>
+		  
+		  </link>
+
+	<!--joint_wrist1_link-->
+	<m_joint name="joint_wrist1__wrist2" type="revolute"
+			 axis_xyz="0 0 1"
+			 origin_rpy="0 0 0" origin_xyz="1.5 0 -2"
+			 parent="wrist1" child="wrist2"
+			 limit_e="1000" limit_l="-1.57" limit_u="1.57" limit_v="0.5" />
+
+	<!--Transmision asociada a la articulacion link06__wrist1-->	
+		<transmission name="trans_base_wrist1_wrist2">
+		        <type>transmission_interface/SimpleTransmission</type>
+		    	  <joint name="joint_wrist1__wrist2">
+		           <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+		    	  </joint>
+		        <actuator name="motor_base_wrist1_wrist2">
+			         <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+			         <mechanicalReduction>1</mechanicalReduction>
+		        </actuator>
+		</transmission>
+
+	<!--wrist2-->
+
+	<link name="wrist2">
+		    <inertial>
+		      <mass value="30" />
+		      <origin rpy="0 0 0" xyz="0 0 0" />
+		      <inertia ixx="10" ixy="0" ixz="0" iyy="10" iyz="0" izz="9" />
+		    </inertial>
+
+		    <visual>
+						<origin rpy="0 0 0" xyz="0 0 0"/>
+		        <geometry>
+		            <cylinder radius="1.5" length="1"/>
+		        </geometry>
+		        <material name="blue"/>
+		    </visual>
+
+		    <collision>
+		        <origin rpy="0 0 0" xyz="0 0 0"/>
+		        <geometry>
+		            <cylinder radius="1.5" length="1"/>
+		        </geometry>
+		    </collision>
+		    </link>
+
+

@@ -1,0 +1,16 @@
+#En este archivo .yaml encontraremos los controladores de la trayectoria
+controller_manager_ns: controller_manager
+controller_list:
+  - name: myrobot/Brazo
+    action_ns: "follow_joint_trajectory"
+    type: FollowJointTrajectory
+    default: true
+    joints:
+      - base_link__link01
+      - link01__link02
+      - link01__link05
+      - link05__link06
+      - link06__wrist1
+      - joint_wrist1__wrist2
+#/myrobot/Brazo
+
